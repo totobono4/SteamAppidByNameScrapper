@@ -29,7 +29,7 @@ while x.json()['response'] != {}:
 
     x = requests.get(steam_request.format(key_param.format(steam_key), max_results_param.format(max_results), last_appid_param.format(last_appid)))
 
-steam_games = {'games': games}
+steam_games = {'games_count': len(games), 'games': games}
 
 with open('steam_games.json', 'w', encoding='utf-8') as f:
     json.dump(steam_games, f, ensure_ascii=False)
