@@ -25,4 +25,4 @@ jobs:
         python main.py
     - name: Commit steam_games.json
       run: |
-        date
+        commit -m "$(date "+%D %T") updated steam_games.json" steam_games.json
