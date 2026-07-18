@@ -23,7 +23,7 @@ jobs:
         STEAM_KEY: ${{ secrets.STEAM_KEY }}
       run: |
         python main.py
-    - name: Commit steam_games.json
+    - name: Publish steam_games.json
       env:
         GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
         GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
@@ -31,3 +31,4 @@ jobs:
         git config --global user.email $GIT_USER_EMAIL
         git config --global user.name $GIT_USER_NAME
         git commit -m "$(date "+%D %T") updated steam_games.json" steam_games.json
+        git push
