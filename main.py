@@ -12,6 +12,10 @@ steam_request = 'https://api.steampowered.com/IStoreService/GetAppList/v1/{}{}{}
 steam_key = os.environ.get('STEAM_KEY')
 max_results = 50000
 
+if steam_key is None:
+    print("No STEAM_KEY.")
+    exit()
+
 x = requests.get(steam_request.format(key_param.format(steam_key), max_results_param.format(max_results), ''))
 
 games = []
