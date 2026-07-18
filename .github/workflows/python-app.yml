@@ -18,8 +18,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Update Games
+    - name: Update steam_games.json
       env:
         STEAM_KEY: ${{ secrets.STEAM_KEY }}
       run: |
         python main.py
+    - name: Commit steam_games.json
+      run: |
+        date
