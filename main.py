@@ -17,6 +17,11 @@ if steam_key is None:
     exit()
 
 x = requests.get(steam_request.format(key_param.format(steam_key), max_results_param.format(max_results), ''))
+code = x.status_code
+
+if code != 200:
+    print('HTTP error {}'.format(code))
+    exit()
 
 games = []
 
