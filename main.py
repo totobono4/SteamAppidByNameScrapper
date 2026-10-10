@@ -14,14 +14,14 @@ max_results = 50000
 
 if steam_key is None:
     print("No STEAM_KEY.")
-    exit()
+    exit(1)
 
 x = requests.get(steam_request.format(key_param.format(steam_key), max_results_param.format(max_results), ''))
 code = x.status_code
 
 if code != 200:
     print('HTTP error {}'.format(code))
-    exit()
+    exit(2)
 
 games = []
 
